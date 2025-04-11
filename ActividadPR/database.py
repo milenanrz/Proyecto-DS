@@ -9,3 +9,8 @@ class Photographers(Base):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(20), nullable=False)
     state: Mapped[bool] = mapped_column(Boolean, nullable=False)
+
+class Styles(Base):
+    __tablename__ = "photograficStyles"
+    id: Mapped[int] = mapped_column(foreign_key=Photographers.id, primary_key=True, autoincrement=True)
+    styleName: Mapped[str] = mapped_column(String(20), nullable=False)
