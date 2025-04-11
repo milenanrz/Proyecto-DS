@@ -1,16 +1,16 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+#from typing import Optional
 
-class Fotografo(BaseModel):
-    name:str = Field(min_length=3, max_length=20)
-    estado:bool = Field()
+class Photographer(BaseModel):
+    name:str = Field(..., min_length=3, max_length=20)
+    condition:bool = Field(...)
 
-class EstiloFotografico(BaseModel):
-    estilo:str = Field(min_length=3, max_length=20)
-
-class FotografoWithId(Fotografo):
+class PhotographerWithId(Photographer):
     id:int
 
-class EstiloWithId(EstiloFotografico):
+class PhotographicStyle(BaseModel):
+    style:str = Field(min_length=3, max_length=20)
+
+class StyleWithId(PhotographicStyle):
     id:int
 
