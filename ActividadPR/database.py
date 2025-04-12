@@ -12,5 +12,5 @@ class Photographers(Base):
 
 class Styles(Base):
     __tablename__ = "photograficStyles"
-    id: Mapped[int] = mapped_column(foreign_key=Photographers.id, primary_key=True, autoincrement=True)
-    styleName: Mapped[str] = mapped_column(String(20), nullable=False)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    style_name: Mapped[str] = mapped_column(String(20), nullable=False)
