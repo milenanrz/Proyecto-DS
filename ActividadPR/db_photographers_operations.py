@@ -33,7 +33,7 @@ async def db_show_all_photographers(db_session:AsyncSession): #db_session trae l
 
 #modificar un registro
 async def db_modify_state(photographer_id:int, actual_state:bool, db_session:AsyncSession):
-    query = (update(Photographers).where(Photographers.id == photographer_id).values(name=actual_state))
+    query = (update(Photographers).where(Photographers.id == photographer_id).values(state=actual_state))
 
     result = await db_session.execute(query)
     await db_session.commit() #confirma el cambio
