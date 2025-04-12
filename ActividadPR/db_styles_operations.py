@@ -33,7 +33,7 @@ async def db_show_all_styles(db_session:AsyncSession): #db_session trae la base 
 
 #modificar un registro
 async def db_modify_style(style_id:int, new_style:str, db_session:AsyncSession):
-    query = (update(Styles).where(Styles.id == style_id).values(style_name=new_style:str))
+    query = (update(Styles).where(Styles.id == style_id).values(style_name=new_style))
 
     result = await db_session.execute(query)
     await db_session.commit() #confirma el cambio
