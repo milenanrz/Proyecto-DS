@@ -9,6 +9,6 @@ def get_engine():
 
 AsyncSessionLocal = sessionmaker (autoflush = False, autocommit = False, bind = get_engine(), class_ = AsyncSession)
 
-async def get_db_session_():
+async def get_styles_session():
     async with AsyncSessionLocal() as session:
         yield session
