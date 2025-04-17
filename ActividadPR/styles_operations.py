@@ -51,7 +51,7 @@ async def remove_style(style_id:int, db_session:AsyncSession):
 
 #buscar estilo
 async def find_style(style_name_:str, db_session:AsyncSession):
-    style_name_.lower()
+    style_name_ = style_name_.capitalize()
     query = (select(Styles).where(Styles.style_name == style_name_))
     result = await db_session.execute(query)
 
