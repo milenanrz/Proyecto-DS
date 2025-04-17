@@ -48,3 +48,12 @@ async def remove_photographer(photographer_id:int, db_session:AsyncSession):
     if result.rowcount == 0: #si es igual a 0 no elimino nada
         return False
     return True
+
+#mostrar el estado (vivo/no vivo)
+async def filter_state_photographer(photographer_state:bool, db_session:AsyncSession):
+    query = (select(Photographers).where(Photographers.state == photographer_state))
+    result = await db_session.execute(query)
+
+    photographer = result.scalars().all()
+
+    return photographer
